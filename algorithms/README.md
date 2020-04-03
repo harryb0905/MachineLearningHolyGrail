@@ -1,0 +1,1 @@
+This repository contains custom implementations and wrappers of Machine Learning Algorithms implemented in Python3, based on the book Hands-On Machine Learning with Scikit-Learn, Keras & Tensorflow by Aurélien Géron. 
