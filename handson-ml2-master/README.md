@@ -1,4 +1,4 @@
-# Hands-On ML with scikit-learn, Keras and Tensorflow (by Aurélien Géron)
+# Hands-On ML with Scikit-Learn, Keras and Tensorflow (by Aurélien Géron)
 
 This repository has been cloned from the original available [here](https://github.com/ageron/handson-ml2).
 
