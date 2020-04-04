@@ -1,5 +1,5 @@
 # Machine Learning Holy Grail
-=============================
+-----------------------------
 
 This repository contains code for machine learning related things.
 
