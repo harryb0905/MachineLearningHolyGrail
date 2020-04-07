@@ -2,7 +2,7 @@
 
 This project was undertaken to exercise my abilities with predictive regression models on a non-trival dataset. 
 
-TLDR: the final model generated was a trained Random Forest Machine Learning model tuned with RandomizedSearch using Scikit-Learn.
+TLDR: the final model generated was a trained Random Forest Machine Learning model tuned with RandomizedSearch using Scikit-Learn. Future development would involve dimensionality reduction techniques (e.g. PCA) and further feature selection and extraction methods.
 
 The Hands-On Machine Learning with Scikit-Learn, Keras and Tensorflow book (Chapter 2) facilitated with this project, which described an implemented a full end-to-end solution for a data science problem. I decided to utilise these steps on a new dataset for personal development. The dataset being used describes the sale of individual residential properties in Ames, Iowa from 2006 to 2010. 
 
