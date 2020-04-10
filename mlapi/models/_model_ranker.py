@@ -24,6 +24,7 @@ class ModelRanker:
     for model_name in model_names:
       bar = FillingSquaresBar(f"Training {model_name} model", max=10)
       for i in range(10):
+          # Do some work
           bar.next()
           time.sleep(random.randint(0, 2))
       bar.finish()
@@ -40,3 +41,4 @@ def main():
 
 if __name__ == '__main__':
   main()
+
