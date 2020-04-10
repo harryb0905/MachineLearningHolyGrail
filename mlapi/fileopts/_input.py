@@ -8,7 +8,7 @@ def write_df(df, filepath, delimiter=','):
   df.to_csv(filepath, index=False)
 
 def main():
-  filepath = '../datasets/people.csv'
+  filepath = '../datasets/practice/people.csv'
   people_df = read_file_as_df(filepath)
   print(people_df.head())
 
