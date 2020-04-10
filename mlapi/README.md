@@ -2,6 +2,6 @@
 
 This folder contains Python code for commonly used Machine Learning and Data Science tools through the use of an API.
 
-### Features Implemented
+### Current State
 
-- [ ] Read CSV and text files 
+- Can run multiple machine learning models using _model_ranker.py. Run ```python python models/_model_ranker.py``` from the root directory to run 10-fold CV.
