@@ -1,0 +1,7 @@
+chalice
+matplotlib
+sklearn
+numpy
+scipy
+pandas
+flask_restful

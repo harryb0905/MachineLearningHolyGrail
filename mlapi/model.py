@@ -1,0 +1,1 @@
+# Model class, can set clf attribute in future
