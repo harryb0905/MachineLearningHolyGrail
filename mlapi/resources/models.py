@@ -1,0 +1,7 @@
+from flask_restful import Resource
+from ml.models import SUPPORTED_MODELS
+
+# Returns list of all currently supported models
+class Models(Resource):
+  def get(self):
+    return [*SUPPORTED_MODELS]

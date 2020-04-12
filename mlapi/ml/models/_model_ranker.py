@@ -4,12 +4,12 @@ import os
 import sys
 
 # Use PYTHONPATH instead
-BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(BASE_PATH)
+# BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# sys.path.append(BASE_PATH)
 
 import fileopts as fo
-from preprocessing import DefaultPipeline
-import models
+from ml.preprocessing import DefaultPipeline
+import ml.models
 
 # Number of folds for k-fold cross-validation
 K = 10
