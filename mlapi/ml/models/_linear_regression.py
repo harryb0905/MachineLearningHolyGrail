@@ -56,7 +56,6 @@ class LinearRegressionWrapper:
     if self._poly_features is not None:
       X_new_b = self._poly_features.fit_transform(X_new)
 
-    print(X_new_b)
     return self._model.predict(X_new_b)
   
 def main():
