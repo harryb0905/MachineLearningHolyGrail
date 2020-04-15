@@ -3,8 +3,11 @@ from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from sklearn.pipeline import Pipeline
 import numpy as np
 
+# For reproducability
+np.random.seed(42) 
+
 class LinearRegressionWrapper:
-  def __init__(self, algorithm="SGD", poly_degree=None):
+  def __init__(self, algorithm="SGD", poly_degree=1):
     self._alg_funcs = {
       "normal": self._normal,
       "SVD": self._svd,
@@ -21,7 +24,7 @@ class LinearRegressionWrapper:
 
   def fit(self, X, y, **kwargs):
     # Run polynomial regression if specified
-    if self._poly_degree is not None and self._algorithm == "normal":
+    if self._poly_degree == 1 and self._algorithm == "normal":
       # Update degree of polynomial to 1 when using normal equation
       print("[Warning] Cannot run polynomial regression using the Normal equation with a degree higher than 1 - running linear regression of degree 1")
       self._poly_features = PolynomialFeatures(degree=1, include_bias=False)
@@ -50,7 +53,7 @@ class LinearRegressionWrapper:
   def _sgd(self, X, y, **kwargs):
     clf = SGDRegressor(max_iter=1000, tol=1e-3, penalty="l2", eta0=0.1)
 
-    if self._poly_degree is not None and self._poly_degree > 1:
+    if self._poly_degree > 1:
       # Scale features to make SGD converge faster
       self._clf = Pipeline([
         ('poly_features', self._poly_features),
@@ -78,22 +81,25 @@ class LinearRegressionWrapper:
     return self._clf.predict(X_new)
   
 def main():
-  np.random.seed(42)
+  # Linear data: generate fake training data
+  m = 100
+  X = 5 * np.random.rand(m, 1)
+  y = 8 + 10 * X + np.random.randn(m, 1)
+  poly_degree = 1
 
-  # Linear data: generate fake training and test data
-  X = 5 * np.random.rand(100, 1)
-  y = 8 + 10 * X + np.random.randn(100, 1)
-
-  # Non-linear data: generate fake training and test data
+  # Non-linear data: generate fake training data
   # m = 100
   # X = 6 * np.random.rand(m, 1) - 3
   # y = 0.5 * X**2 + X + 2 + np.random.randn(m, 1)
+  # poly_degree = 2
+
+  # Test data
   X_new = np.array([[0],[1],[2],[3]])
 
   # Run linear regression with chosen algorithm and obtain predictions
   algorithms = ["normal", "SVD", "SGD"]
   for algo in algorithms:
-    lin_reg = LinearRegressionWrapper(algorithm=algo, poly_degree=1)
+    lin_reg = LinearRegressionWrapper(algorithm=algo, poly_degree=poly_degree)
     lin_reg.fit(X, y)
     print(f"Linear regression results (with {algo} algorithm):\nIntercept: {lin_reg.intercept_}, Coefficients: {lin_reg.coef_}")
     preds = lin_reg.predict(X_new)
