@@ -24,7 +24,7 @@ class LinearRegressionWrapper:
 
   def fit(self, X, y, **kwargs):
     # Run polynomial regression if specified
-    if self._poly_degree == 1 and self._algorithm == "normal":
+    if self._poly_degree > 1 and self._algorithm == "normal":
       # Update degree of polynomial to 1 when using normal equation
       print("[Warning] Cannot run polynomial regression using the Normal equation with a degree higher than 1 - running linear regression of degree 1")
       self._poly_features = PolynomialFeatures(degree=1, include_bias=False)
